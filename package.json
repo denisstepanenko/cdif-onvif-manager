@@ -1,0 +1,27 @@
+{
+  "name": "cdif-onvif-manager",
+  "version": "0.0.1",
+  "description": "ONVIF profile S manager for CDIF framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "onvif",
+    "cdif"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/out4b/cdif-onvif-manager.git"
+  },
+  "author": "out4b",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/out4b/cdif-onvif-manager/issues"
+  },
+  "homepage": "https://github.com/out4b/cdif-onvif-manager",
+  "dependencies": {
+    "node-arp": "^1.0.5",
+    "onvif": "^0.3.0"
+  }
+}
