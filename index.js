@@ -45,6 +45,7 @@ function OnvifDevice(cam) {
     this.cam.password = pass;
     cam.connect(function(cam, err) {
       if (err) {
+        //FIXME: how to know auth failed?
         callback(new Error('cannot connect to cam'));
       } else {
         callback(null);
@@ -57,6 +58,7 @@ function OnvifDevice(cam) {
   };
 
   this._getHWAddress = function(callback) {
+    console.log(this.cam);
     arp.getMAC(this.cam.ipaddress, function(err, mac) {
       if (err) {
         callback(new Error('hw address not found'), null);
