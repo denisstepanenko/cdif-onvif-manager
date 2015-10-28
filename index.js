@@ -14,16 +14,14 @@ function OnvifManager() {
 util.inherits(OnvifManager, events.EventEmitter);
 
 OnvifManager.prototype.discoverDevices = function() {
+  var _this = this;
   if (this.discoverState === 'discovering') {
     return;
   }
   onvif.Discovery.on('device', function(cam){
     device = new OnvifDevice(cam);
-    device._connect = device._connect.bind(device);
-    device._disconnect = device._disconnect.bind(device);
-    device._getHWAddress = device._getHWAddress.bind(device);
     this.emit('deviceonline', device, this);
-  });
+  }.bind(this));
   onvif.Discovery.probe();
   this.discoverState = 'discovering';
 };
@@ -43,11 +41,17 @@ function OnvifDevice(cam) {
   this._connect = function(user, pass, callback) {
     this.cam.username = user;
     this.cam.password = pass;
-    cam.connect(function(cam, err) {
+
+    var _this = this;
+    this.cam.connect(function(err) {
       if (err) {
-        //FIXME: how to know auth failed?
-        callback(new Error('cannot connect to cam'));
+        if(err.message === 'ONVIF SOAP Fault: Sender not Authorized') {
+          callback(new Error('auth failed'));
+        } else {
+          callback(new Error('cannot connect to cam'));
+        }
       } else {
+        console.log(_this);
         callback(null);
       }
     });
@@ -58,9 +62,8 @@ function OnvifDevice(cam) {
   };
 
   this._getHWAddress = function(callback) {
-    console.log(this.cam);
-    arp.getMAC(this.cam.ipaddress, function(err, mac) {
-      if (err) {
+    arp.getMAC(this.cam.hostname, function(err, mac) {
+    if (err) {
         callback(new Error('hw address not found'), null);
       } else {
         callback(null, mac);
@@ -68,5 +71,7 @@ function OnvifDevice(cam) {
     });
   };
 }
+
+util.inherits(OnvifDevice, CdifDevice);
 
 module.exports = OnvifManager;
