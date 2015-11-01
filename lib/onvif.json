@@ -14,7 +14,7 @@
       "urn:cdif-net:serviceID:ONVIFMediaService": {
         "serviceType": "urn:cdif-net:service:ONVIFMedia:1",
         "actionList": {
-          "GetStreamUri": {
+          "getStreamUri": {
             "argumentList": {
               "streamType": {
                 "direction": "in",
@@ -31,12 +31,12 @@
               }
             }
           },
-          "GetSnapshotUri": {
+          "getSnapshotUri": {
             "argumentList": {
-              "snapShotUri": {
+              "snapshotUri": {
                 "direction": "out",
                 "retval": true,
-                "relatedStateVariable": "snapShotUri"
+                "relatedStateVariable": "snapshotUri"
               }
             }
           }
@@ -68,7 +68,7 @@
             "sendEvents": "yes",
             "dataType": "url"
           },
-          "snapShotUri": {
+          "snapshotUri": {
             "sendEvents": "yes",
             "dataType": "url"
           }
