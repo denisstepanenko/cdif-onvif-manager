@@ -14,9 +14,15 @@ OnvifManager.prototype.discoverDevices = function() {
   if (this.discoverState === 'discovering') {
     return;
   }
-  onvif.Discovery.on('device', function(cam){
-    device = new OnvifDevice(cam);
-    this.emit('deviceonline', device, this);
+  onvif.Discovery.on('device', function(cam) {
+    cam.getDeviceInformation(function(err, info) {
+      if (!err) {
+        device = new OnvifDevice(cam, info);
+        this.emit('deviceonline', device, this);
+      } else {
+        console.warn('cannot get cam info');
+      }
+    }.bind(this));
   }.bind(this));
   onvif.Discovery.probe();
   this.discoverState = 'discovering';

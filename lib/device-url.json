@@ -1,0 +1,11 @@
+{
+  "foscam": {
+    "protocol": "http:",
+    "slashes": true,
+    "hostname": "",
+    "auth": "",
+    "port": "88",
+    "pathname": "/",
+    "hash": ""
+  }
+}
