@@ -49,9 +49,9 @@
             "allowedValueList": [
               "RTP-Unicast",
               "RTP-Multicast",
-              "MJPEG"
+              "MPEG"
             ],
-            "defaultValue": "MJPEG"
+            "defaultValue": "MPEG"
           },
           "transport": {
             "sendEvents": "no",
