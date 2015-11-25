@@ -9,7 +9,7 @@ The original ONVIF Profile S specification is written in WSDL and quite complex.
 This module implemented a reverse HTTP proxy server to help redirect incoming HTTP traffics to ONVIF device's configuration page while hiding its actual device URL. By doing this, imagine if CDIF runs on a home router, the camera device managed by CDIF would have no need to configure the device's DDNS and port forwarding to be accessible from external network.
 
 ### Media streaming
-By doing RTSP to MPEG1 transcoding through FFmpeg, the reverse HTTP proxy server in this module is capable of streaming MPEG1 based live video to client side through WebSocket transport. In this case, client side may integrate [jsmpeg library](https://github.com/phoboslab/jsmpeg) to play live HTML5 video in a canvas element. Under [examples/jsmpeg](https://github.com/out4b/cdif-onvif-manager/tree/master/examples/jsmpeg) there is an example of how to this.
+By doing RTSP to MPEG1 transcoding through FFmpeg, the reverse HTTP proxy server in this module is capable of streaming MPEG1 based live video to client side through WebSocket transport. In this case, client side may integrate [jsmpeg library](https://github.com/phoboslab/jsmpeg) to play live HTML5 video in a canvas element. Under [examples/jsmpeg](https://github.com/out4b/cdif-onvif-manager/tree/master/examples/jsmpeg) there is an example of how to do this.
 
 To enable this usage, the getStreamUri() action call through CDIF's RESTful interface needs to specify 'MPEG' and 'WebSocket' as input streamType and transport arguments.
 
