@@ -4,6 +4,7 @@ var onvif = require('onvif');
 var OnvifDevice = require('./lib/onvif-device')
 
 function OnvifManager() {
+  this.deviceList = {};
   this.discoverState = 'stopped';
 }
 
