@@ -44,7 +44,7 @@
         },
         "serviceStateTable": {
           "streamType": {
-            "sendEvents": "no",
+            "sendEvents": false,
             "dataType": "string",
             "allowedValueList": [
               "RTP-Unicast",
@@ -54,7 +54,7 @@
             "defaultValue": "MPEG"
           },
           "transport": {
-            "sendEvents": "no",
+            "sendEvents": false,
             "dataType": "string",
             "allowedValueList": [
               "UDP",
