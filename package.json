@@ -23,7 +23,7 @@
   "dependencies": {
     "express": "^4.13.3",
     "node-arp": "^1.0.5",
-    "onvif": "^0.3.0",
+    "onvif": "^0.4.0",
     "request": "^2.67.0",
     "ws": "^0.8.0"
   },
