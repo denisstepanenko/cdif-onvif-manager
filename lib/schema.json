@@ -2,96 +2,197 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "#/",
   "type": "object",
-  "description": "schema specification for ONVIF profile S",
+  "description": "schema definitions for ONVIF profile S",
   "ptz": {
     "AbsoluteMoveArg": {
       "type": "object",
       "properties": {
-        "ProfileToken": {
+        "profileToken": {
           "type": "string"
         },
-        "Position": {
-          "type": "object",
-          "properties": {
-            "PanTilt": {
-              "type": "object",
-              "properties": {
-                "x": {
-                  "type": "number"
-                },
-                "y": {
-                  "type": "number"
-                },
-                "space": {
-                  "type": "string",
-                  "$ref": "#/ptz/SpaceSelector"
-                }
-              },
-              "required": [
-                "x",
-                "y"
-              ]
-            },
-            "Zoom": {
-              "type": "object",
-              "properties": {
-                "x": {
-                  "type": "number"
-                },
-                "space": {
-                  "type": "string",
-                  "$ref": "#/ptz/SpaceSelector"
-                }
-              },
-              "required": [
-                "x"
-              ]
-            }
-          }
+        "x": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": -1
         },
-        "Speed": {
+        "y": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": -1
+        },
+        "zoom": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 0
+        },
+        "speed": {
           "type": "object",
           "properties": {
-            "PanTilt": {
-              "type": "object",
-              "properties": {
-                "x": {
-                  "type": "number"
-                },
-                "y": {
-                  "type": "number"
-                },
-                "space": {
-                  "type": "string",
-                  "$ref": "#/ptz/SpaceSelector"
-                }
-              },
-              "required": [
-                "x",
-                "y"
-              ]
+            "x": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
             },
-            "Zoom": {
-              "type": "object",
-              "properties": {
-                "x": {
-                  "type": "number"
-                },
-                "space": {
-                  "type": "string",
-                  "$ref": "#/ptz/SpaceSelector"
-                }
-              },
-              "required": [
-                "x"
-              ]
+            "y": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
+            },
+            "zoom": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
             }
-          }
+          },
+          "required": [
+            "x",
+            "y"
+          ]
         }
       },
       "required": [
-        "Position"
+        "x",
+        "y"
       ]
+    },
+    "RelativeMoveArg": {
+      "type": "object",
+      "properties": {
+        "profileToken": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": -1
+        },
+        "y": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": -1
+        },
+        "zoom": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 0
+        },
+        "speed": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
+            },
+            "y": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
+            },
+            "zoom": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
+            }
+          },
+          "required": [
+            "x",
+            "y"
+          ]
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ]
+    },
+    "ContinuousMoveArg": {
+      "type": "object",
+      "properties": {
+        "profileToken": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 0
+        },
+        "y": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 0
+        },
+        "zoom": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 0
+        },
+        "timeout": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ]
+    },
+    "GetPresetsArg": {
+      "type": "object"
+    },
+    "GetNodesArg": {
+      "type": "object"
+    },
+    "GotoPresetArg": {
+      "type": "object",
+      "properties": {
+        "profileToken": {
+          "type": "string"
+        },
+        "preset": {
+          "type": "string"
+        },
+        "speed": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
+            },
+            "y": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
+            },
+            "zoom": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0
+            }
+          },
+          "required": [
+            "x",
+            "y"
+          ]
+        }
+      },
+      "required": [
+        "preset"
+      ]
+    },
+    "StopArg": {
+      "type": "object",
+      "properties": {
+        "profileToken": {
+          "type": "string"
+        },
+        "panTilt": {
+          "type": "boolean"
+        },
+        "zoom": {
+          "type": "boolean"
+        }
+      }
     },
     "SpaceSelector": {
       "oneOf": [
