@@ -134,43 +134,56 @@
                 "relatedStateVariable": "A_ARG_TYPE_Stop"
               }
             }
+          },
+          "getStatus": {
+            "argumentList": {
+              "status": {
+                "direction": "out",
+                "relatedStateVariable": "PTZStatus"
+              }
+            }
           }
         },
         "serviceStateTable": {
           "A_ARG_TYPE_AbsoluteMove": {
             "sendEvents": false,
             "dataType": "object",
-            "schema": "/ptz/AbsoluteMoveArg"
+            "schema": "/onvif/ptz/AbsoluteMoveArg"
           },
           "A_ARG_TYPE_RelativeMove": {
             "sendEvents": false,
             "dataType": "object",
-            "schema": "/ptz/RelativeMoveArg"
+            "schema": "/onvif/ptz/RelativeMoveArg"
           },
           "A_ARG_TYPE_ContinuousMove": {
             "sendEvents": false,
             "dataType": "object",
-            "schema": "/ptz/ContinuousMoveArg"
+            "schema": "/onvif/ptz/ContinuousMoveArg"
           },
           "A_ARG_TYPE_Stop": {
             "sendEvents": false,
             "dataType": "object",
-            "schema": "/ptz/StopArg"
+            "schema": "/onvif/ptz/StopArg"
           },
           "A_ARG_TYPE_GetPresets": {
             "sendEvents": false,
             "dataType": "object",
-            "schema": "/ptz/GetPresetsArg"
+            "schema": "/onvif/ptz/GetPresetsArg"
           },
           "A_ARG_TYPE_GotoPreset": {
             "sendEvents": false,
             "dataType": "object",
-            "schema": "/ptz/GotoPresetArg"
+            "schema": "/onvif/ptz/GotoPresetArg"
           },
           "A_ARG_TYPE_GetNodes": {
             "sendEvents": false,
             "dataType": "object",
-            "schema": "/ptz/GetNodesArg"
+            "schema": "/onvif/ptz/GetNodesArg"
+          },
+          "PTZStatus": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/onvif/ptz/PTZStatus"
           }
         }
       }

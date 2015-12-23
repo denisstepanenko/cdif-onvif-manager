@@ -3,216 +3,275 @@
   "id": "#/",
   "type": "object",
   "description": "schema definitions for ONVIF profile S",
-  "ptz": {
-    "AbsoluteMoveArg": {
-      "type": "object",
-      "properties": {
-        "profileToken": {
-          "type": "string"
-        },
-        "x": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": -1
-        },
-        "y": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": -1
-        },
-        "zoom": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": 0
-        },
-        "speed": {
-          "type": "object",
-          "properties": {
-            "x": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
+  "onvif": {
+    "ptz": {
+      "AbsoluteMoveArg": {
+        "type": "object",
+        "properties": {
+          "profileToken": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": -1
+          },
+          "y": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": -1
+          },
+          "zoom": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          },
+          "speed": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              },
+              "y": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              },
+              "zoom": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              }
             },
-            "y": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ]
+      },
+      "RelativeMoveArg": {
+        "type": "object",
+        "properties": {
+          "profileToken": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": -1
+          },
+          "y": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": -1
+          },
+          "zoom": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          },
+          "speed": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              },
+              "y": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              },
+              "zoom": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              }
             },
-            "zoom": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ]
+      },
+      "ContinuousMoveArg": {
+        "type": "object",
+        "properties": {
+          "profileToken": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          },
+          "y": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          },
+          "zoom": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          },
+          "timeout": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ]
+      },
+      "GetPresetsArg": {
+        "type": "object"
+      },
+      "GetNodesArg": {
+        "type": "object"
+      },
+      "GotoPresetArg": {
+        "type": "object",
+        "properties": {
+          "profileToken": {
+            "type": "string"
+          },
+          "preset": {
+            "type": "string"
+          },
+          "speed": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              },
+              "y": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              },
+              "zoom": {
+                "type": "number",
+                "maximum": 1,
+                "minimum": 0
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "preset"
+        ]
+      },
+      "StopArg": {
+        "type": "object",
+        "properties": {
+          "profileToken": {
+            "type": "string"
+          },
+          "panTilt": {
+            "type": "boolean"
+          },
+          "zoom": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PTZStatus": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "zoom": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "zoom"
+            ]
+          },
+          "moveStatus": {
+            "type": "object",
+            "properties": {
+              "PanTilt": {
+                "type": "string",
+                "enum": [
+                  "IDLE",
+                  "MOVING",
+                  "UNKNOWN"
+                ]
+              },
+              "Zoom": {
+                "type": "string",
+                "enum": [
+                  "IDLE",
+                  "MOVING",
+                  "UNKNOWN"
+                ]
+              }
             }
           },
-          "required": [
-            "x",
-            "y"
-          ]
-        }
-      },
-      "required": [
-        "x",
-        "y"
-      ]
-    },
-    "RelativeMoveArg": {
-      "type": "object",
-      "properties": {
-        "profileToken": {
-          "type": "string"
-        },
-        "x": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": -1
-        },
-        "y": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": -1
-        },
-        "zoom": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": 0
-        },
-        "speed": {
-          "type": "object",
-          "properties": {
-            "x": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
-            },
-            "y": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
-            },
-            "zoom": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
-            }
+          "error": {
+            "type": "string"
           },
-          "required": [
-            "x",
-            "y"
-          ]
-        }
+          "utcTime": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "position",
+          "moveStatus",
+          "error",
+          "utcTime"
+        ]
       },
-      "required": [
-        "x",
-        "y"
-      ]
-    },
-    "ContinuousMoveArg": {
-      "type": "object",
-      "properties": {
-        "profileToken": {
-          "type": "string"
-        },
-        "x": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": 0
-        },
-        "y": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": 0
-        },
-        "zoom": {
-          "type": "number",
-          "maximum": 1,
-          "minimum": 0
-        },
-        "timeout": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "x",
-        "y"
-      ]
-    },
-    "GetPresetsArg": {
-      "type": "object"
-    },
-    "GetNodesArg": {
-      "type": "object"
-    },
-    "GotoPresetArg": {
-      "type": "object",
-      "properties": {
-        "profileToken": {
-          "type": "string"
-        },
-        "preset": {
-          "type": "string"
-        },
-        "speed": {
-          "type": "object",
-          "properties": {
-            "x": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
-            },
-            "y": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
-            },
-            "zoom": {
-              "type": "number",
-              "maximum": 1,
-              "minimum": 0
-            }
+      "SpaceSelector": {
+        "oneOf": [
+          {
+            "type": "string",
+            "pattern": "^http://www.onvif.org/ver10/tptz/PanTiltSpaces/PositionGenericSpace$"
           },
-          "required": [
-            "x",
-            "y"
-          ]
-        }
-      },
-      "required": [
-        "preset"
-      ]
-    },
-    "StopArg": {
-      "type": "object",
-      "properties": {
-        "profileToken": {
-          "type": "string"
-        },
-        "panTilt": {
-          "type": "boolean"
-        },
-        "zoom": {
-          "type": "boolean"
-        }
+          {
+            "type": "string",
+            "pattern": "^http://www.onvif.org/ver10/tptz/PanTiltSpaces/VelocityGenericSpace$"
+          },
+          {
+            "type": "string",
+            "pattern": "^http://www.onvif.org/ver10/tptz/PanTiltSpaces/TranslationGenericSpace$"
+          },
+          {
+            "type": "string",
+            "pattern": "^http://www.onvif.org/ver10/tptz/PanTiltSpaces/GenericSpeedSpace$"
+          }
+        ]
       }
-    },
-    "SpaceSelector": {
-      "oneOf": [
-        {
-          "type": "string",
-          "pattern": "^http://www.onvif.org/ver10/tptz/PanTiltSpaces/PositionGenericSpace$"
-        },
-        {
-          "type": "string",
-          "pattern": "^http://www.onvif.org/ver10/tptz/PanTiltSpaces/VelocityGenericSpace$"
-        },
-        {
-          "type": "string",
-          "pattern": "^http://www.onvif.org/ver10/tptz/PanTiltSpaces/TranslationGenericSpace$"
-        },
-        {
-          "type": "string",
-          "pattern": "^http://www.onvif.org/ver10/tptz/PanTiltSpaces/GenericSpeedSpace$"
-        }
-      ]
     }
   }
 }
