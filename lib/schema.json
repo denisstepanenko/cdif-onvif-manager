@@ -242,13 +242,15 @@
             "type": "string"
           },
           "utcTime": {
-            "type": "string"
+            "type": [
+              "string",
+              "number"
+            ]
           }
         },
         "required": [
           "position",
           "moveStatus",
-          "error",
           "utcTime"
         ]
       },
