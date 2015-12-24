@@ -27,28 +27,7 @@
             "minimum": 0
           },
           "speed": {
-            "type": "object",
-            "properties": {
-              "x": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              },
-              "y": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              },
-              "zoom": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              }
-            },
-            "required": [
-              "x",
-              "y"
-            ]
+            "$ref": "#/onvif/ptz/speed"
           }
         },
         "required": [
@@ -78,28 +57,7 @@
             "minimum": 0
           },
           "speed": {
-            "type": "object",
-            "properties": {
-              "x": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              },
-              "y": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              },
-              "zoom": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              }
-            },
-            "required": [
-              "x",
-              "y"
-            ]
+            "$ref": "#/onvif/ptz/speed"
           }
         },
         "required": [
@@ -153,28 +111,7 @@
             "type": "string"
           },
           "speed": {
-            "type": "object",
-            "properties": {
-              "x": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              },
-              "y": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              },
-              "zoom": {
-                "type": "number",
-                "maximum": 1,
-                "minimum": 0
-              }
-            },
-            "required": [
-              "x",
-              "y"
-            ]
+            "$ref": "#/onvif/ptz/speed"
           }
         },
         "required": [
@@ -252,6 +189,30 @@
           "position",
           "moveStatus",
           "utcTime"
+        ]
+      },
+      "speed": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          },
+          "y": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          },
+          "zoom": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          }
+        },
+        "required": [
+          "x",
+          "y"
         ]
       },
       "SpaceSelector": {
