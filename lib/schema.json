@@ -6,64 +6,10 @@
   "onvif": {
     "ptz": {
       "AbsoluteMoveArg": {
-        "type": "object",
-        "properties": {
-          "profileToken": {
-            "type": "string"
-          },
-          "x": {
-            "type": "number",
-            "maximum": 1,
-            "minimum": -1
-          },
-          "y": {
-            "type": "number",
-            "maximum": 1,
-            "minimum": -1
-          },
-          "zoom": {
-            "type": "number",
-            "maximum": 1,
-            "minimum": 0
-          },
-          "speed": {
-            "$ref": "#/onvif/ptz/speed"
-          }
-        },
-        "required": [
-          "x",
-          "y"
-        ]
+        "$ref": "#/onvif/ptz/moveArgs"
       },
       "RelativeMoveArg": {
-        "type": "object",
-        "properties": {
-          "profileToken": {
-            "type": "string"
-          },
-          "x": {
-            "type": "number",
-            "maximum": 1,
-            "minimum": -1
-          },
-          "y": {
-            "type": "number",
-            "maximum": 1,
-            "minimum": -1
-          },
-          "zoom": {
-            "type": "number",
-            "maximum": 1,
-            "minimum": 0
-          },
-          "speed": {
-            "$ref": "#/onvif/ptz/speed"
-          }
-        },
-        "required": [
-          "x",
-          "y"
-        ]
+        "$ref": "#/onvif/ptz/moveArgs"
       },
       "ContinuousMoveArg": {
         "type": "object",
@@ -208,6 +154,36 @@
             "type": "number",
             "maximum": 1,
             "minimum": 0
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ]
+      },
+      "moveArgs": {
+        "type": "object",
+        "properties": {
+          "profileToken": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": -1
+          },
+          "y": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": -1
+          },
+          "zoom": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 0
+          },
+          "speed": {
+            "$ref": "#/onvif/ptz/speed"
           }
         },
         "required": [
