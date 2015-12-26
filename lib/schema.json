@@ -14,9 +14,6 @@
       "ContinuousMoveArg": {
         "type": "object",
         "properties": {
-          "profileToken": {
-            "type": "string"
-          },
           "x": {
             "type": "number",
             "maximum": 1,
@@ -50,9 +47,6 @@
       "GotoPresetArg": {
         "type": "object",
         "properties": {
-          "profileToken": {
-            "type": "string"
-          },
           "preset": {
             "type": "string"
           },
@@ -67,9 +61,6 @@
       "StopArg": {
         "type": "object",
         "properties": {
-          "profileToken": {
-            "type": "string"
-          },
           "panTilt": {
             "type": "boolean"
           },
@@ -164,9 +155,6 @@
       "moveArgs": {
         "type": "object",
         "properties": {
-          "profileToken": {
-            "type": "string"
-          },
           "x": {
             "type": "number",
             "maximum": 1,
