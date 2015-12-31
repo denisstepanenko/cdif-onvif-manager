@@ -5,15 +5,15 @@
     "minor": 0
   },
   "device": {
-    "deviceType": "urn:cdif-net:device:ONVIFCamera:1",
+    "deviceType": "urn:onvif-org:device:ONVIFCamera:1",
     "friendlyName": "",
     "manufacturer": "",
     "modelName": "",
     "userAuth": true,
     "devicePresentation": true,
     "serviceList": {
-      "urn:cdif-net:serviceID:ONVIFMediaService": {
-        "serviceType": "urn:cdif-net:service:ONVIFMedia:1",
+      "urn:onvif-org:serviceID:ONVIFMediaService": {
+        "serviceType": "urn:onvif-org:service:ONVIFMedia:1",
         "actionList": {
           "getStreamUri": {
             "argumentList": {
@@ -75,8 +75,8 @@
           }
         }
       },
-      "urn:cdif-net:serviceID:ONVIFPTZService": {
-        "serviceType": "urn:cdif-net:service:ONVIFPTZ:1",
+      "urn:onvif-org:serviceID:ONVIFPTZService": {
+        "serviceType": "urn:onvif-org:service:ONVIFPTZ:1",
         "actionList": {
           "absoluteMove": {
             "argumentList": {
