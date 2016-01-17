@@ -1,6 +1,6 @@
 {
   "name": "cdif-onvif-manager",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "ONVIF profile S manager for CDIF framework",
   "main": "index.js",
   "scripts": {
