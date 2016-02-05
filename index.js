@@ -15,6 +15,7 @@ OnvifManager.prototype.discoverDevices = function() {
   if (this.discoverState === 'discovering') {
     return;
   }
+  //TODO: add only one event listener
   onvif.Discovery.on('device', function(cam) {
     cam.getDeviceInformation(function(err, info) {
       if (!err) {
